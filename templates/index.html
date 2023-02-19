@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Click Through Probability Prediction</title>
+  <style>
+    body {
+      background: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .login {
+      background-color: #f2f2f2;
+      border-radius: 10px;
+      margin: 50px auto;
+      max-width: 500px;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #00008B;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    input[type="number"],
+    input[type="radio"] {
+      margin-left: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #00008B;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 20px;
+      margin-top: 20px;
+      padding: 10px 20px;
+      width: 100%;
+    }
+
+    h2 {
+      color: red;
+      font-size: 24px;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <h1>Customer Click Through Rate Prediction</h1>
+
+    <form action="{{ url_for('predict')}}" method="post">
+      <label for="user_past_purchases"><b>User past purchases:</b></label>
+      <input type="number" name="user_past_purchases" placeholder="enter a number (>=0)" required="required">
+
+      <label for="email_text"><b>Email text:</b></label>
+      <input type="radio" name="email_text" value="short_email"> Short email
+      <input type="radio" name="email_text" value="long_email"> Long email
+
+      <label for="email_version"><b>Email version:</b></label>
+      <input type="radio" name="email_version" value="personalized"> Personalized
+      <input type="radio" name="email_version" value="generic"> Generic
+
+      <label for="weekday"><b>Weekday:</b></label>
+      <input type="radio" name="weekday" value="Monday"> Monday
+      <input type="radio" name="weekday" value="Tuesday"> Tuesday
+      <input type="radio" name="weekday" value="Wednesday"> Wednesday
+      <input type="radio" name="weekday" value="Thursday"> Thursday
+      <input type="radio" name="weekday" value="Friday"> Friday
+      <input type="radio" name="weekday" value="Saturday"> Saturday
+      <input type="radio" name="weekday" value="Sunday"> Sunday
+
+      <label for="user_country"><b>User country:</b></label>
+      <input type="radio" name="user_country" value="FR"> FR
+      <input type="radio" name="user_country" value="UK"> UK
+      <input type="radio" name="user_country" value="US"> US
+      <input type="radio" name="user_country" value="ES"> ES
+
+      <label for="time_of_day"><b>Time of day:</b></label>
+      <input type="radio" name="time_of_day" value="morning"> Morning
+      <input type="radio" name="time_of_day" value="evening"> Evening
+      <input type="radio" name="time_of_day" value="midnight"> Midnight
+      <input type="radio" name="time_of_day" value="afternoon"> Afternoon
+      <input type="submit" value="Predict Link Click Probability">
+
+      <h2>{{ prediction_text }}</h2>
+      </form>
+      </div>
+      </body>
+      </html>
+    
